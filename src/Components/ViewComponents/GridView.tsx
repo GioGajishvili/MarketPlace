@@ -24,7 +24,7 @@ const GridViewComponent = () => {
             stockColor={item.stockColor}
             stockIndicator={item.stockIndicator}
             photo={item.photo}
-            colorfulStarsCount={item.colorfulStarCount}
+            colorfulStarsCount={item.colorfulStarsCount}
             reviewCount={item.reviewCount}
             description={item.description}
             specialPrice={item.specialPrice}

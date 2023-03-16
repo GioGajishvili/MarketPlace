@@ -2,7 +2,10 @@ import "./GridView.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { BsFillStarFill } from "react-icons/bs";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
-import { Box } from "@mui/material";
+import { Box, IconButton, Rating } from "@mui/material";
+import { useEffect, useState } from "react";
+import { NextPlan } from "@mui/icons-material";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 const ProductModel = (props: any) => {
   const threeDots = "...";
@@ -12,12 +15,39 @@ const ProductModel = (props: any) => {
     stockColor,
     stockIndicator,
     photo,
-    colorfulStarCount,
+    colorfulStarsCount,
     reviewCount,
     description,
     specialPrice,
     discountedPrice,
   } = props;
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [images, setImages] = useState(photo);
+  const [isUpdated, setIsUpdated] = useState(false);
+
+  useEffect(() => {
+    if (isUpdated) {
+      setTimeout(() => {
+        setIsUpdated(false);
+      }, 500);
+    }
+  }, [isUpdated]);
+
+  const prevPhoto = () => {
+    setTimeout(() => {
+      setCurrentIndex((currentIndex + photo.length - 1) % photo.length);
+    }, 500);
+
+    setIsUpdated(true);
+  };
+
+  const nextPhoto = () => {
+    setTimeout(() => {
+      setCurrentIndex((currentIndex + 1) % photo.length);
+    }, 500);
+    setIsUpdated(true);
+  };
 
   return (
     <Box component={"div"} className="grid-view-product">
@@ -41,47 +71,42 @@ const ProductModel = (props: any) => {
           position: "relative",
         }}
       >
-        <Box component={"img"} className="product-photo" src={photo} />
         <Box
+          component="img"
+          className={`product-photo ${isUpdated ? "updated" : ""}`}
+          src={images[currentIndex]}
+        />
+        <IconButton
+          onClick={prevPhoto}
           component={"button"}
           className="product-arrow-icons"
-          style={{ position: "absolute", margin: "60px 0px 0px 20px" }}
+          style={{
+            position: "absolute",
+            margin: "60px 0px 0px 20px",
+            outline: "none",
+          }}
         >
-          <MdArrowBackIosNew />
-        </Box>
-        <Box
+          <MdArrowBackIosNew size={20} />
+        </IconButton>
+        <IconButton
+          onClick={nextPhoto}
           component={"button"}
           className="product-arrow-icons"
-          style={{ position: "absolute", margin: "60px 0px 0px 210px" }}
+          style={{
+            position: "absolute",
+            margin: "60px 0px 0px 210px",
+            outline: "none",
+          }}
         >
-          <MdArrowForwardIos />
-        </Box>
+          <MdArrowForwardIos size={20} />
+        </IconButton>
       </Box>
       <Box component={"div"} className="review-stars">
-        <BsFillStarFill
-          color={id && colorfulStarCount > 0 ? "orange" : "gray"}
-          size="18"
-          style={{ margin: "0px 1px 0px 1px" }}
-        />
-        <BsFillStarFill
-          color={id && colorfulStarCount > 1 ? "orange" : "gray"}
-          size="18"
-          style={{ margin: "0px 1px 0px 1px" }}
-        />
-        <BsFillStarFill
-          color={id && colorfulStarCount > 2 ? "orange" : "gray"}
-          size="18"
-          style={{ margin: "0px 1px 0px 1px" }}
-        />
-        <BsFillStarFill
-          color={id && colorfulStarCount > 3 ? "orange" : "gray"}
-          size="18"
-          style={{ margin: "0px 1px 0px 1px" }}
-        />
-        <BsFillStarFill
-          color={id && colorfulStarCount > 4 ? "orange" : "gray"}
-          size="18"
-          style={{ margin: "0px 1px 0px 1px" }}
+        <Rating
+          precision={0.5}
+          name="read-only"
+          value={colorfulStarsCount}
+          readOnly
         />
         <Box
           component={"p"}
