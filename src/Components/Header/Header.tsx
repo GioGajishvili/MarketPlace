@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import SearchBar from "./SearchBar";
-import { Box, Typography, TypographyProps } from "@mui/material";
+import { Box, IconButton, Typography, TypographyProps } from "@mui/material";
 import { CSSProperties, styled } from "@mui/styles";
 
 const HeaderTypography = styled((props: any) => (
@@ -15,7 +15,6 @@ const HeaderTypography = styled((props: any) => (
       fontFamily: "Jura",
       fontSize: "12px",
       marginTop: "4px",
-      marginLeft: "14%",
       color: "white",
       fontStyle: "normal",
       fontWeight: 600,
@@ -28,24 +27,37 @@ function Header() {
   const navigate = useNavigate();
   return (
     <Box style={{ zIndex: 100 }} className="header">
-      <Box className="black-line">
-        <Box className="info-container">
-          <HeaderTypography>
-            Mon-Fri :{" "}
-            <Box
-              component={"mark"}
-              sx={{ backgroundColor: "transparent", color: "grey" }}
-            >
-              9:00 AM - 5:30 PM
-            </Box>
-          </HeaderTypography>
-          <HeaderTypography>
-            Visit our showroom in Tbilisi, Chavchavadze N36, Contact Us
-          </HeaderTypography>
+      <Box
+        className="black-line"
+        sx={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          gap: "280px",
+        }}
+      >
+        <HeaderTypography>
+          Mon-Fri :{" "}
+          <Box
+            component={"mark"}
+            sx={{ backgroundColor: "transparent", color: "grey" }}
+          >
+            9:00 AM - 5:30 PM
+          </Box>
+        </HeaderTypography>
+        <HeaderTypography>
+          Visit our showroom in Tbilisi, Chavchavadze N36, Contact Us
+        </HeaderTypography>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
           <HeaderTypography>Call Us: (995) 551 37 07 37 </HeaderTypography>
           <Box
             style={{
-              marginRight: "265px",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -53,13 +65,16 @@ function Header() {
             }}
           >
             <Box
+              sx={{ width: "20px", marginTop: "10px" }}
               component={"a"}
               href="https://www.facebook.com"
               target="_blank"
             >
               <FaFacebookSquare color="white" className="facebook-logo" />
             </Box>
+
             <Box
+              sx={{ width: "20px", marginTop: "10px" }}
               component={"a"}
               href="https://www.instagram.com"
               target="_blank"
@@ -76,44 +91,66 @@ function Header() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
+            gap: "100px",
           }}
         >
+          <Box>
+            <Box
+              component={"img"}
+              className="logo-for-header"
+              src="./assets/images/LogoForHeader.png"
+            />
+          </Box>
           <Box
-            component={"img"}
-            className="logo-for-header"
-            src="./assets/images/LogoForHeader.png"
-          />
-          <Link to="/" className="header-filters" id="first-filter">
-            Home
-          </Link>
-          <Link to="/AboutUs" className="header-filters">
-            About Us
-          </Link>
-          <Link to="/Laptops" className="header-filters">
-            Laptops
-          </Link>
-          <Link to="/DesktopPcs" className="header-filters">
-            Desktop PCs
-          </Link>
-          <Link to="/NetworkingDevices" className="header-filters">
-            Networking Devices
-          </Link>
-          <Link to="/PCParts" className="header-filters">
-            PC Parts
-          </Link>
-          <SearchBar />
-          <CiShoppingCart className="cart-icon cart-icon-global" />
-          <Box
-            component={"button"}
-            style={{
-              border: "none",
-              width: "fit-content",
-              borderRadius: "50px",
-              backgroundColor: "transparent",
+            sx={{
+              display: "flex",
+              justifyContent: "flex",
+              alignItems: "center",
+              gap: "32px",
             }}
-            onClick={() => navigate("/Auth")}
           >
-            <CiUser className="user-icon" />
+            <Link
+              to="/"
+              className="header-filters"
+              style={{ marginLeft: "30px" }}
+            >
+              Home
+            </Link>
+            <Link to="/AboutUs" className="header-filters">
+              About Us
+            </Link>
+            <Link to="/Laptops" className="header-filters">
+              Laptops
+            </Link>
+            <Link to="/DesktopPcs" className="header-filters">
+              Desktop PCs
+            </Link>
+            <Link to="/NetworkingDevices" className="header-filters">
+              Networking Devices
+            </Link>
+            <Link to="/PCParts" className="header-filters">
+              PC Parts
+            </Link>
+          </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "6px",
+            }}
+          >
+            <SearchBar />
+            <CiShoppingCart className="cart-icon" />
+            <IconButton
+              size="small"
+              style={{
+                outline: "none",
+              }}
+              onClick={() => navigate("/Auth")}
+            >
+              <CiUser className="user-icon" />
+            </IconButton>
           </Box>
         </Box>
       </Box>

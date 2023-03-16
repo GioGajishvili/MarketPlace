@@ -29,22 +29,22 @@
 .clear-filters-button {
   width: 160px;
   height: 36px;
-  margin-top: 10px;
   border-radius: 50px;
   background-color: rgb(56, 91, 187);
   color: white;
-  font-size: 14px;
-  font-weight: bold;
   border: none;
 }
 
 .filter-category-button {
+  cursor: pointer;
   border: none;
   background-color: transparent;
   margin-top: 30px;
 }
 
 .filter-price-button {
+  cursor: pointer;
+
   border: none;
   background-color: transparent;
   margin-top: 16px;

@@ -95,18 +95,36 @@ const ProductModel = (props: any) => {
           ? description
           : description.substring(0, 25) + threeDots}
       </Box>
-      <Box component={"div"} className="prices-container">
-        <Box component={"p"} className="special-price">
-          {specialPrice}
+      {specialPrice ? (
+        <Box component={"div"} className="prices-container">
+          <Box
+            component={"p"}
+            className="special-price"
+            style={{ marginBottom: "10px" }}
+          >
+            {specialPrice}
+          </Box>
+          <Box
+            component={"p"}
+            style={{ marginLeft: "40px", marginBottom: "10px" }}
+            className="discounted-price"
+          >
+            {discountedPrice}
+          </Box>
         </Box>
+      ) : (
         <Box
           component={"p"}
-          style={{ marginLeft: "40px" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "10px",
+          }}
           className="discounted-price"
         >
           {discountedPrice}
         </Box>
-      </Box>
+      )}
     </Box>
   );
 };

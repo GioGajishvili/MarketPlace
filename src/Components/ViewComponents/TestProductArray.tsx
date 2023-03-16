@@ -12,7 +12,7 @@ export const testProductArray = [
     colorfulStarCount: 4,
     reviewCount: "4 reviews",
     description: "MSI GeForce RTX 3070",
-    specialPrice: "600$",
+    // specialPrice: "600$",
     discountedPrice: "560$",
   },
   {
@@ -76,7 +76,7 @@ export const testProductArray = [
     colorfulStarCount: 5,
     reviewCount: "90 reviews",
     description: "Nvidia GeForce GTX 1660 Ti",
-    specialPrice: "750$",
+    // specialPrice: "750$",
     discountedPrice: "590$",
   },
   {
@@ -140,7 +140,7 @@ export const testProductArray = [
     colorfulStarCount: 2,
     reviewCount: "67 reviews",
     description: "Nintendo Switch Pro",
-    specialPrice: "490$",
+    // specialPrice: "490$",
     discountedPrice: "360$",
   },
   {
@@ -188,7 +188,7 @@ export const testProductArray = [
     colorfulStarCount: 5,
     reviewCount: "29 reviews",
     description: "Mademax RS-1 Handheld Game Console",
-    specialPrice: "590$",
+    // specialPrice: "590$",
     discountedPrice: "500$",
   },
 ];
