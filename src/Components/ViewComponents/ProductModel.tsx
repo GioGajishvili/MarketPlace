@@ -4,17 +4,16 @@ import { BsFillStarFill } from "react-icons/bs";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { Box, IconButton, Rating } from "@mui/material";
 import { useEffect, useState } from "react";
-import { NextPlan } from "@mui/icons-material";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import { Link } from "react-router-dom";
 
 const ProductModel = (props: any) => {
   const threeDots = "...";
   const {
     id,
     inStock,
-    stockColor,
     stockIndicator,
-    photo,
+    photos,
     colorfulStarsCount,
     reviewCount,
     description,
@@ -23,7 +22,7 @@ const ProductModel = (props: any) => {
   } = props;
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [images, setImages] = useState(photo);
+  const [images, setImages] = useState(photos);
   const [isUpdated, setIsUpdated] = useState(false);
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const ProductModel = (props: any) => {
 
   const prevPhoto = () => {
     setTimeout(() => {
-      setCurrentIndex((currentIndex + photo.length - 1) % photo.length);
+      setCurrentIndex((currentIndex + photos.length - 1) % photos.length);
     }, 500);
 
     setIsUpdated(true);
@@ -44,7 +43,7 @@ const ProductModel = (props: any) => {
 
   const nextPhoto = () => {
     setTimeout(() => {
-      setCurrentIndex((currentIndex + 1) % photo.length);
+      setCurrentIndex((currentIndex + 1) % photos.length);
     }, 500);
     setIsUpdated(true);
   };
@@ -71,11 +70,13 @@ const ProductModel = (props: any) => {
           position: "relative",
         }}
       >
-        <Box
-          component="img"
-          className={`product-photo ${isUpdated ? "updated" : ""}`}
-          src={images[currentIndex]}
-        />
+        <Link to={"ProductDetailes"}>
+          <Box
+            component="img"
+            className={`product-photo ${isUpdated ? "updated" : ""}`}
+            src={images[currentIndex]}
+          />
+        </Link>
         <IconButton
           onClick={prevPhoto}
           component={"button"}

@@ -4,7 +4,7 @@ export const testProductArray = [
     inStock: true,
     stockColor: "green",
     stockIndicator: "In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -22,7 +22,7 @@ export const testProductArray = [
     inStock: true,
     stockColor: "green",
     stockIndicator: "In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -40,7 +40,7 @@ export const testProductArray = [
     inStock: false,
     stockColor: "red",
     stockIndicator: "Not In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -58,7 +58,7 @@ export const testProductArray = [
     inStock: false,
     stockColor: "red",
     stockIndicator: "Not In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -76,7 +76,7 @@ export const testProductArray = [
     inStock: false,
     stockColor: "red",
     stockIndicator: "Not In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -94,7 +94,7 @@ export const testProductArray = [
     inStock: true,
     stockColor: "green",
     stockIndicator: "In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -112,7 +112,7 @@ export const testProductArray = [
     inStock: false,
     stockColor: "red",
     stockIndicator: "Not In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -130,7 +130,7 @@ export const testProductArray = [
     inStock: true,
     stockColor: "green",
     stockIndicator: "In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -148,7 +148,7 @@ export const testProductArray = [
     inStock: false,
     stockColor: "red",
     stockIndicator: "Not In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -166,7 +166,7 @@ export const testProductArray = [
     inStock: true,
     stockColor: "green",
     stockIndicator: "In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -184,7 +184,7 @@ export const testProductArray = [
     inStock: true,
     stockColor: "green",
     stockIndicator: "In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",
@@ -202,7 +202,7 @@ export const testProductArray = [
     inStock: false,
     stockColor: "red",
     stockIndicator: "Not In Stock",
-    photo: [
+    photos: [
       "/assets/images/TestProductPhoto.png",
       "/assets/images/TestProductPhoto2.png",
       "/assets/images/TestProductPhoto3.png",

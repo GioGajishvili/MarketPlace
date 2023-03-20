@@ -11,6 +11,7 @@ import Laptops from "./Pages/Laptops/Laptops";
 import DesktopPCs from "./Pages/DesktopPCs/DesktopPcs";
 import NetworkingDevices from "./Pages/NetworkingDevices/NetworkingDevices";
 import PCParts from "./Pages/PCParts/PCParts";
+import ProductDetailes from "./Pages/ProductDetailes/ProductDetailes";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ function App() {
           <Route path="/PCParts" element={<PCParts />} />
           <Route path="Auth" element={<Auth />} />
           <Route path="/AboutUs" element={<AboutUs />} />
+          <Route path="/ProductDetailes" element={<ProductDetailes />} />
         </Routes>
         <Footer />
       </Box>
