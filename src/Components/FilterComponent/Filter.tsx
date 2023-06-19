@@ -35,7 +35,7 @@ const FilterCompononet = () => {
   return (
     <Box ref={parent} component={"div"} className="leftside-filter">
       <Box>
-        <Box component={"h1"} style={{ fontSize: "28px", marginTop: "20px" }}>
+        <Box component={"h1"} style={{ fontSize: "28px", marginTop: "20px", color: "black" }}>
           Filters
         </Box>
         <Button
@@ -58,6 +58,7 @@ const FilterCompononet = () => {
         <FilterButton
           className="filter-category-button"
           onClick={() => toggleButton()}
+        sx={{color: "black"}}
         >
           Category
           <MdArrowBackIosNew style={{ margin: "5px 0px 1px 16" }} size="12px" />
@@ -67,6 +68,7 @@ const FilterCompononet = () => {
         <Box
           component={"div"}
           style={{
+            color: "black",
             display: "flex",
             flexDirection: "column",
             marginTop: "8px",
@@ -87,6 +89,8 @@ const FilterCompononet = () => {
         <FilterButton
           className="filter-price-button"
           onClick={() => setTogglePrice(!togglePrice)}
+          sx={{color: "black"}}
+
         >
           Price
           <MdArrowBackIosNew style={{ margin: "5px 0px 1px 16" }} size="12px" />

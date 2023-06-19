@@ -12,7 +12,7 @@ const Login = () => {
       <Box component={"form"} className="form-login" onSubmit={handleSubmit}>
         <Box
           component={"h2"}
-          style={{ marginBottom: "4px", fontSize: "30px", fontWeight: "bold" }}
+          style={{ marginBottom: "4px", fontSize: "30px", fontWeight: "bold", color: "black" }}
         >
           Registered Costumers
         </Box>
@@ -21,6 +21,7 @@ const Login = () => {
           style={{
             margin: "20px 0px 0px 4px",
             fontWeight: "bold",
+            color: "black"
           }}
         >
           Email
@@ -34,12 +35,13 @@ const Login = () => {
             borderRadius: "10px",
             border: "none",
             fontFamily: "Poppins",
+            backgroundColor: "white"
           }}
           placeholder="Your E-mail"
         ></Box>
         <Box
           component={"label"}
-          style={{ marginLeft: "4px", fontWeight: "bold" }}
+          style={{ marginLeft: "4px", fontWeight: "bold", color: "black" }}
         >
           Password
         </Box>
@@ -53,6 +55,8 @@ const Login = () => {
             borderRadius: "10px",
             border: "none",
             fontFamily: "Poppins",
+            backgroundColor: "white"
+
           }}
           placeholder="Your Password"
         ></Box>

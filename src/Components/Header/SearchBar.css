@@ -43,5 +43,6 @@
 .search-icon {
   border: none;
   background-color: transparent;
+  color: black;
   cursor: pointer;
 }

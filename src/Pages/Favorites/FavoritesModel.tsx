@@ -1,4 +1,4 @@
-import "./GridView.css";
+import "./Favorites.css";
 import { BsCheckCircleFill } from "react-icons/bs";
 import { MdAddCircleOutline } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
@@ -18,7 +18,7 @@ const StyledRating = styled(Rating)({
   },
 });
 
-const ProductModal = (props: any) => {
+const FavoritesModel = (props: any) => {
   const threeDots = "...";
   const {
     id,
@@ -30,34 +30,11 @@ const ProductModal = (props: any) => {
     description,
     specialPrice,
     discountedPrice,
-    item,
-    setFavItems
   } = props;
 
   const [currentIndex, setCurrentIndex] = useState(Math.round(Math.random() * 4));
   const [images, setImages] = useState(photos);
   const [isUpdated, setIsUpdated] = useState(false);
-  const [favoriteState, setFavoriteState] = useState(0);
-
-  const favoriteClickHandler = (newValue: any) => {
-    setFavoriteState(prev => prev === 1 ? 0 : 1);
-    if (newValue === 1) {
-      setFavItems((prev: any[]) => [...prev, item])
-    } else {
-      setFavItems((prev: any[]) => prev.filter(itm => itm?.id !== item?.id))
-    }
-  }
-
-  useEffect(() => {
-    const itemList = localStorage.getItem("favItems");
-    if(itemList) {
-      JSON.parse(itemList).filter((itm: any) => itm?.id === item?.id)?.length ? setFavoriteState(1) : setFavoriteState(0);
-    }
-  }, [localStorage.getItem("favItems")])
-
-  useEffect(() => {
-
-  }, [])
 
   useEffect(() => {
     if (isUpdated) {
@@ -95,17 +72,16 @@ const ProductModal = (props: any) => {
         >
           {stockIndicator}
         </Box>
-        <IconButton style={{ outline: "none" }}><MdAddCircleOutline size={22} /></IconButton>
-        <StyledRating
-          name="customized-color"
-          value={favoriteState}
-          getLabelText={(value: number) => `${value} Heart${value !== 1 ? 's' : ''}`}
-          precision={1}
-          icon={<FavoriteIcon fontSize="inherit" />}
-          emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
-          max={1}
-          onChange={(_, newValue) => favoriteClickHandler(newValue)}
-        />
+        <IconButton style={{outline: "none"}}><MdAddCircleOutline size={22} /></IconButton>
+          <StyledRating
+            name="customized-color"
+            defaultValue={0}
+            getLabelText={(value: number) => `${value} Heart${value !== 1 ? 's' : ''}`}
+            precision={1}
+            icon={<FavoriteIcon fontSize="inherit" />}
+            emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
+            max={1}
+          />
       </Box>
       <Box
         component={"div"}
@@ -200,4 +176,4 @@ const ProductModal = (props: any) => {
   );
 };
 
-export default ProductModal;
+export default FavoritesModel;

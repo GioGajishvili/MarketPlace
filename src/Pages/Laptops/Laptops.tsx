@@ -1,11 +1,12 @@
-import { Box } from "@mui/material";
+import { Box,  } from "@mui/material";
 import "./Laptops.css";
+import Banner from "../../Components/Banner/Banner";
 
 const Laptops = () => {
   return (
     <Box component={"div"} className="laptops-page">
       <Box component={"p"} className="laptops-page">
-        Laptops
+        <Box style={{width: "1000px"}}>Laptops</Box>
       </Box>
     </Box>
   );

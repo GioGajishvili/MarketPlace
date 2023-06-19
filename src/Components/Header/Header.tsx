@@ -1,5 +1,7 @@
 import "./Header.css";
-import { CiShoppingCart, CiUser } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
+import { RiShoppingCartLine } from "react-icons/ri";
+import { BsHeart } from "react-icons/bs";
 import { Link, useNavigate } from "react-router-dom";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
@@ -128,7 +130,7 @@ function Header() {
             <Link to="/NetworkingDevices" className="header-filters">
               Networking Devices
             </Link>
-            <Link to="/PCParts" className="header-filters">
+            <Link style={{paddingRight: "200px"}} to="/PCParts" className="header-filters">
               PC Parts
             </Link>
           </Box>
@@ -140,8 +142,7 @@ function Header() {
               gap: "6px",
             }}
           >
-            <SearchBar />
-            <CiShoppingCart className="cart-icon" />
+            {/* <SearchBar /> */}
             <IconButton
               size="small"
               style={{
@@ -151,6 +152,24 @@ function Header() {
             >
               <CiUser className="user-icon" />
             </IconButton>
+            <IconButton
+              style={{
+                outline: "none",
+              }}
+              onClick={() => navigate("/Favorites")}
+            >
+              <BsHeart />
+            </IconButton>
+            <IconButton
+              style={{
+                outline: "none",
+              }}
+              onClick={() => navigate("/Cart")}
+            >
+              <RiShoppingCartLine />
+            </IconButton>
+
+            
           </Box>
         </Box>
       </Box>

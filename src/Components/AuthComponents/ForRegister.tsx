@@ -12,7 +12,7 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
       <Box component={"form"} className="form-login" onSubmit={handleSubmit}>
         <Box
           component={"label"}
-          style={{ marginLeft: "4px", fontWeight: "bold" }}
+          style={{ marginLeft: "4px", fontWeight: "bold", color: "black" }}
         >
           Username
         </Box>
@@ -27,6 +27,8 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
             height: "20px",
             width: "300px",
             fontFamily: "Poppins",
+            backgroundColor: "white"
+
           }}
           placeholder="Your Username"
         ></Box>
@@ -46,6 +48,8 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
             border: "none",
             height: "20px",
             fontFamily: "Poppins",
+            backgroundColor: "white"
+
           }}
           placeholder="Your E-mail"
         ></Box>
@@ -66,6 +70,8 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
             border: "none",
             height: "20px",
             fontFamily: "Poppins",
+            backgroundColor: "white"
+
           }}
           placeholder="Your Password"
         ></Box>

@@ -12,13 +12,14 @@ import DesktopPCs from "./Pages/DesktopPCs/DesktopPcs";
 import NetworkingDevices from "./Pages/NetworkingDevices/NetworkingDevices";
 import PCParts from "./Pages/PCParts/PCParts";
 import ProductDetailes from "./Pages/ProductDetailes/ProductDetailes";
+import Favorites from "./Pages/Favorites/Favorites";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <BrowserRouter>
-      <Box className={"App"}>
+      <Box className={"App"} style={{backgroundColor: "white"}}>
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -29,6 +30,7 @@ function App() {
           <Route path="Auth" element={<Auth />} />
           <Route path="/AboutUs" element={<AboutUs />} />
           <Route path="/ProductDetailes" element={<ProductDetailes />} />
+          <Route path="/Favorites" element={<Favorites />} />
         </Routes>
         <Footer />
       </Box>

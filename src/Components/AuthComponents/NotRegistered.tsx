@@ -17,7 +17,7 @@ const NotRegistered = (props: Test) => {
       <Box className="form-register">
         <Box
           component={"h2"}
-          style={{ marginBottom: "4px", fontWeight: "bold" }}
+          style={{ marginBottom: "4px", fontWeight: "bold", color: "black" }}
         >
           New Customer
         </Box>
@@ -25,9 +25,9 @@ const NotRegistered = (props: Test) => {
           Creating an account has many benefits{" "}
         </Box>
         <Box component={"ul"}>
-          <Box component={"li"}>Check out faster</Box>
-          <Box component={"li"}>Keep more than one address</Box>
-          <Box component={"li"}>Track orders and more</Box>
+          <Box style={{color: "black"}} component={"li"}>Check out faster</Box>
+          <Box style={{color: "black"}} component={"li"}>Keep more than one address</Box>
+          <Box style={{color: "black"}} component={"li"}>Track orders and more</Box>
         </Box>
         <Box
           component={"button"}

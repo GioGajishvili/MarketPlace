@@ -7,8 +7,9 @@
 .arrow-routing {
   display: flex;
   align-items: center;
-  margin-top: 135px;
-  margin-left: 300px;
+  margin-top: 110px;
+  margin-left: 200px;
+  padding: 30px;
 }
 
 .about-us-link {
@@ -32,6 +33,7 @@
   font-style: normal;
   font-weight: bolder;
   font-size: 40px;
+  color: black;
 }
 
 .first-container {

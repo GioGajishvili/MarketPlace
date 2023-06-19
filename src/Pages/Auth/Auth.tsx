@@ -11,6 +11,7 @@ const Auth = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "flex-start",
+          backgroundColor: "white", 
         }}
       >
         <Box component={"h1"} className="login-title">
