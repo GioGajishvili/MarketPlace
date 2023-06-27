@@ -1,11 +1,16 @@
 import "./Favorites.css";
 import { favoritesProductArray } from "./FavoritesProductArray";
 import ProductModel from "./FavoritesModel";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Box, Grid } from "@mui/material";
 
 const GridViewComponent = () => {
   const [product, setProduct] = useState<any[]>([]);
+
+  const ref = useRef<any>()
+  useEffect(()=> {
+    ref.current?.scrollIntoView(0,0)
+  },[])
 
   useEffect(() => {
     const itemList = localStorage.getItem("favItems")
@@ -16,6 +21,7 @@ const GridViewComponent = () => {
 
   return (
     <Box
+    ref={ref}
       sx={{ display: "flex", flexDirection: "row", justifyContent: "center", padding: "150px", flexWrap: "wrap" }}
     >
       {product.map((item) => (

@@ -3,11 +3,16 @@ import { BiChevronRight } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Review from "../../Components/Review/Review";
 import { Box } from "@mui/material";
+import { useEffect, useRef } from "react";
 
 const AboutUs = () => {
+  const ref = useRef<any>()
+  useEffect(()=> {
+    ref.current?.scrollIntoView(0,0)
+  },[])
   return (
     <Box className="about-us-page">
-      <Box className="arrow-routing">
+      <Box ref={ref} className="arrow-routing">
         <Link
           to="/"
           style={{ marginRight: "20px", fontSize: "inherit" }}

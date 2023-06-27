@@ -1,8 +1,13 @@
 import { Box } from "@mui/material";
 import ProductDetailesSlider from "../../Components/ProductSlider/ProductDetailesSlider";
+import { useEffect, useRef } from "react";
 
 const ProductDetailes = () => {
-  return <Box sx={{ maxWidth: "1400px", height: "800px", paddingTop: "200px", display: "flex", flexDirection: "row", justifyContent: "space-around", margin: "0 auto" }}>
+  const ref = useRef<any>()
+  useEffect(()=> {
+    ref.current?.scrollIntoView(0,0)
+  },[])
+  return <Box ref={ref} sx={{ maxWidth: "1400px", height: "800px", paddingTop: "200px", display: "flex", flexDirection: "row", justifyContent: "space-around", margin: "0 auto" }}>
     <Box sx={{ width: "600px", height: "600px", display: "flex", flexDirection: "column", justifyContent: "flex-start", borderRadius: "50px" }}>
       <Box component="h2" sx={{ color: "black", fontFamily: "Jura", fontSize: "40px", fontWeight: "bold", margin: "0px 10px 10px 10px"}}>MSI MPG Trident 3</Box>
       <Box component="ul" sx={{ color: "black", fontFamily: "Jura", fontSize: "20px", fontWeight: "bold", margin: "40px 10px 10px 10px"}}></Box>
