@@ -6,8 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaFacebookSquare } from "react-icons/fa";
 import { FiInstagram } from "react-icons/fi";
 import SearchBar from "./SearchBar";
-import { Box, IconButton, Typography, TypographyProps } from "@mui/material";
+import { Badge, Box, IconButton, Typography, TypographyProps } from "@mui/material";
 import { CSSProperties, styled } from "@mui/styles";
+import { useEffect, useState } from "react";
 
 const HeaderTypography = styled((props: any) => (
   <Typography
@@ -27,6 +28,25 @@ const HeaderTypography = styled((props: any) => (
 
 function Header() {
   const navigate = useNavigate();
+  const [badgeCount, setBadgeCount] = useState(0);
+
+  useEffect(() => {
+    window.addEventListener("storage", () => {
+      const cartItems = localStorage.getItem("cartItems");
+      if (cartItems) {
+        setBadgeCount((JSON.parse(cartItems) as any[]).length);
+      } else {
+        setBadgeCount(0);
+      }
+    });
+    const cartItems = localStorage.getItem("cartItems");
+    if (cartItems) {
+      setBadgeCount((JSON.parse(cartItems) as any[]).length);
+    } else {
+      setBadgeCount(0);
+    }
+  }, [localStorage.getItem("cartItems")]);
+
   return (
     <Box style={{ zIndex: 100 }} className="header">
       <Box
@@ -40,16 +60,11 @@ function Header() {
       >
         <HeaderTypography>
           Mon-Fri :{" "}
-          <Box
-            component={"mark"}
-            sx={{ backgroundColor: "transparent", color: "grey" }}
-          >
+          <Box component={"mark"} sx={{ backgroundColor: "transparent", color: "grey" }}>
             9:00 AM - 5:30 PM
           </Box>
         </HeaderTypography>
-        <HeaderTypography>
-          Visit our showroom in Tbilisi, Chavchavadze N36, Contact Us
-        </HeaderTypography>
+        <HeaderTypography>Visit our showroom in Tbilisi, Chavchavadze N36, Contact Us</HeaderTypography>
         <Box
           sx={{
             display: "flex",
@@ -66,21 +81,11 @@ function Header() {
               paddingLeft: "20px",
             }}
           >
-            <Box
-              sx={{ width: "20px", marginTop: "10px" }}
-              component={"a"}
-              href="https://www.facebook.com"
-              target="_blank"
-            >
+            <Box sx={{ width: "20px", marginTop: "10px" }} component={"a"} href="https://www.facebook.com" target="_blank">
               <FaFacebookSquare color="white" className="facebook-logo" />
             </Box>
 
-            <Box
-              sx={{ width: "20px", marginTop: "10px" }}
-              component={"a"}
-              href="https://www.instagram.com"
-              target="_blank"
-            >
+            <Box sx={{ width: "20px", marginTop: "10px" }} component={"a"} href="https://www.instagram.com" target="_blank">
               <FiInstagram color="white" className="instagram-logo" />
             </Box>
           </Box>
@@ -97,11 +102,7 @@ function Header() {
           }}
         >
           <Box>
-            <Box
-              component={"img"}
-              className="logo-for-header"
-              src="./assets/images/LogoForHeader.png"
-            />
+            <Box component={"img"} className="logo-for-header" src="./assets/images/LogoForHeader.png" />
           </Box>
           <Box
             sx={{
@@ -111,11 +112,7 @@ function Header() {
               gap: "32px",
             }}
           >
-            <Link
-              to="/"
-              className="header-filters"
-              style={{ marginLeft: "30px" }}
-            >
+            <Link to="/" className="header-filters" style={{ marginLeft: "30px" }}>
               Home
             </Link>
             <Link to="/AboutUs" className="header-filters">
@@ -130,7 +127,7 @@ function Header() {
             <Link to="/NetworkingDevices" className="header-filters">
               Networking Devices
             </Link>
-            <Link style={{paddingRight: "200px"}} to="/PCParts" className="header-filters">
+            <Link style={{ paddingRight: "200px" }} to="/PCParts" className="header-filters">
               PC Parts
             </Link>
           </Box>
@@ -166,10 +163,10 @@ function Header() {
               }}
               onClick={() => navigate("/Cart")}
             >
-              <RiShoppingCartLine />
+              <Badge badgeContent={badgeCount} color="primary">
+                <RiShoppingCartLine />
+              </Badge>
             </IconButton>
-
-            
           </Box>
         </Box>
       </Box>

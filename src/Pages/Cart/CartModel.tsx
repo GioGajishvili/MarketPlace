@@ -1,11 +1,10 @@
-import "./Favorites.css";
+import "./Cart.css";
 import { BsCheckCircleFill } from "react-icons/bs";
-import { MdAddCircleOutline } from "react-icons/md";
+import { MdRemoveCircleOutline } from "react-icons/md";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import { Box, IconButton, Rating, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { CiShoppingCart } from "react-icons/ci";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
@@ -18,9 +17,10 @@ const StyledRating = styled(Rating)({
   },
 });
 
-const FavoritesModel = (props: any) => {
+const CartModel = (props: any) => {
   const threeDots = "...";
-  const { id, inStock, stockIndicator, photos, colorfulStarsCount, reviewCount, description, specialPrice, discountedPrice, favoriteClickHandler } = props;
+  const { id, inStock, stockIndicator, photos, colorfulStarsCount, reviewCount, description, specialPrice, discountedPrice, removeFromCartClickHandler } =
+    props;
 
   const [currentIndex, setCurrentIndex] = useState(Math.round(Math.random() * 4));
   const [images, setImages] = useState(photos);
@@ -36,9 +36,7 @@ const FavoritesModel = (props: any) => {
   }, [isUpdated]);
 
   useEffect(() => {
-    window.addEventListener("storage", () => {
-      
-    })
+    window.addEventListener("storage", () => {});
     const itemList = localStorage.getItem("favItems");
     if (itemList) {
       JSON.parse(itemList).filter((itm: any) => itm?.id === id)?.length ? setFavoriteState(1) : setFavoriteState(0);
@@ -73,10 +71,10 @@ const FavoritesModel = (props: any) => {
         >
           {stockIndicator}
         </Box>
-        <IconButton style={{ outline: "none" }}>
-          <MdAddCircleOutline size={22} />
+        <IconButton style={{ outline: "none" }} onClick={() => removeFromCartClickHandler(id)}>
+          <MdRemoveCircleOutline size={22} />
         </IconButton>
-        <StyledRating
+        {/* <StyledRating
           value={favoriteState}
           name="customized-color"
           defaultValue={0}
@@ -85,8 +83,7 @@ const FavoritesModel = (props: any) => {
           icon={<FavoriteIcon fontSize="inherit" />}
           emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
           max={1}
-          onChange={(_, newValue) => favoriteClickHandler(newValue, id)}
-        />
+        /> */}
       </Box>
       <Box
         component={"div"}
@@ -159,4 +156,4 @@ const FavoritesModel = (props: any) => {
   );
 };
 
-export default FavoritesModel;
+export default CartModel;

@@ -6,33 +6,22 @@ import { Box, IconButton, Rating, styled } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { CiShoppingCart } from "react-icons/ci";
-import FavoriteIcon from '@mui/icons-material/Favorite';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 
 const StyledRating = styled(Rating)({
-  '& .MuiRating-iconFilled': {
-    color: '#ff6d75',
+  "& .MuiRating-iconFilled": {
+    color: "#ff6d75",
   },
-  '& .MuiRating-iconHover': {
-    color: '#ff3d47',
+  "& .MuiRating-iconHover": {
+    color: "#ff3d47",
   },
 });
 
 const ProductModal = (props: any) => {
   const threeDots = "...";
-  const {
-    id,
-    inStock,
-    stockIndicator,
-    photos,
-    colorfulStarsCount,
-    reviewCount,
-    description,
-    specialPrice,
-    discountedPrice,
-    item,
-    setFavItems
-  } = props;
+  const { id, inStock, stockIndicator, photos, colorfulStarsCount, reviewCount, description, specialPrice, discountedPrice, item, setFavItems, setCartItems } =
+    props;
 
   const [currentIndex, setCurrentIndex] = useState(Math.round(Math.random() * 4));
   const [images, setImages] = useState(photos);
@@ -40,24 +29,24 @@ const ProductModal = (props: any) => {
   const [favoriteState, setFavoriteState] = useState(0);
 
   const favoriteClickHandler = (newValue: any) => {
-    setFavoriteState(prev => prev === 1 ? 0 : 1);
+    setFavoriteState((prev) => (prev === 1 ? 0 : 1));
     if (newValue === 1) {
-      setFavItems((prev: any[]) => [...prev, item])
+      setFavItems((prev: any[]) => [...prev, item]);
     } else {
-      setFavItems((prev: any[]) => prev.filter(itm => itm?.id !== item?.id))
+      setFavItems((prev: any[]) => prev.filter((itm) => itm?.id !== id));
     }
-  }
+  };
+
+  const addToCartClickHandler = () => {
+    setCartItems((prev: any[]) => [...prev, item]);
+  };
 
   useEffect(() => {
     const itemList = localStorage.getItem("favItems");
-    if(itemList) {
+    if (itemList) {
       JSON.parse(itemList).filter((itm: any) => itm?.id === item?.id)?.length ? setFavoriteState(1) : setFavoriteState(0);
     }
-  }, [localStorage.getItem("favItems")])
-
-  useEffect(() => {
-
-  }, [])
+  }, [localStorage.getItem("favItems")]);
 
   useEffect(() => {
     if (isUpdated) {
@@ -95,11 +84,13 @@ const ProductModal = (props: any) => {
         >
           {stockIndicator}
         </Box>
-        <IconButton style={{ outline: "none" }}><MdAddCircleOutline size={22} /></IconButton>
+        <IconButton style={{ outline: "none" }} onClick={addToCartClickHandler}>
+          <MdAddCircleOutline size={22} />
+        </IconButton>
         <StyledRating
           name="customized-color"
           value={favoriteState}
-          getLabelText={(value: number) => `${value} Heart${value !== 1 ? 's' : ''}`}
+          getLabelText={(value: number) => `${value} Heart${value !== 1 ? "s" : ""}`}
           precision={1}
           icon={<FavoriteIcon fontSize="inherit" />}
           emptyIcon={<FavoriteBorderIcon fontSize="inherit" />}
@@ -116,11 +107,7 @@ const ProductModal = (props: any) => {
         }}
       >
         <Link to={"ProductDetailes"}>
-          <Box
-            component="img"
-            className={`product-photo ${isUpdated ? "updated" : ""}`}
-            src={images[currentIndex]}
-          />
+          <Box component="img" className={`product-photo ${isUpdated ? "updated" : ""}`} src={images[currentIndex]} />
         </Link>
         <IconButton
           onClick={prevPhoto}
@@ -148,38 +135,20 @@ const ProductModal = (props: any) => {
         </IconButton>
       </Box>
       <Box component={"div"} className="review-stars">
-        <Rating
-          precision={0.5}
-          name="read-only"
-          value={colorfulStarsCount}
-          readOnly
-        />
-        <Box
-          component={"p"}
-          style={{ margin: "0px 0px 2px 12px", color: "grey" }}
-        >
+        <Rating precision={0.5} name="read-only" value={colorfulStarsCount} readOnly />
+        <Box component={"p"} style={{ margin: "0px 0px 2px 12px", color: "grey" }}>
           {reviewCount}
         </Box>
       </Box>
       <Box component={"p"} className="product-describe">
-        {description.length < 25
-          ? description
-          : description.substring(0, 25) + threeDots}
+        {description.length < 25 ? description : description.substring(0, 25) + threeDots}
       </Box>
       {specialPrice ? (
         <Box component={"div"} className="prices-container">
-          <Box
-            component={"p"}
-            className="special-price"
-            style={{ marginBottom: "10px" }}
-          >
+          <Box component={"p"} className="special-price" style={{ marginBottom: "10px" }}>
             {specialPrice}
           </Box>
-          <Box
-            component={"p"}
-            style={{ marginLeft: "40px", marginBottom: "10px" }}
-            className="discounted-price"
-          >
+          <Box component={"p"} style={{ marginLeft: "40px", marginBottom: "10px" }} className="discounted-price">
             {discountedPrice}
           </Box>
         </Box>

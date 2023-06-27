@@ -9,16 +9,19 @@ import Banner from "../Banner/Banner";
 const GridViewComponent = () => {
   const [product, setProduct] = useState(testProductArray);
   const [favItems, setFavItems] = useState<any[]>(JSON.parse(localStorage.getItem("favItems")!) || []);
+  const [cartItems, setCartItems] = useState<any[]>(JSON.parse(localStorage.getItem("cartItems")!) || []);
 
   useEffect(() => {
-    console.log(favItems)
     localStorage.setItem("favItems", JSON.stringify(favItems));
-  }, [favItems])
+  }, [favItems]);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    window.dispatchEvent(new Event("storage"));
+  }, [cartItems]);
 
   return (
-    <Box
-      sx={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: "150px" }}
-    >
+    <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: "150px" }}>
       <Box>
         <FilterCompononet />
       </Box>
@@ -41,6 +44,7 @@ const GridViewComponent = () => {
             discountedPrice={item.discountedPrice}
             item={item}
             setFavItems={setFavItems}
+            setCartItems={setCartItems}
           />
         ))}
       </Box>
