@@ -68,13 +68,11 @@ const GridViewComponent = () => {
             />
           ))
         ) : (
-          <Box
+          <Box fontFamily={"Jura"} color={"black"} fontWeight={"bolder"}
             width={"100%"}
             height={"100%"}
-            color={"black"}
             textAlign={"center"}
             fontSize={"25px"}
-            fontWeight={"bolder"}
           >
             No Items
           </Box>
@@ -88,7 +86,7 @@ const GridViewComponent = () => {
         alignItems={"center"}
         paddingRight={20}
       >
-        <Typography>
+        <Typography fontFamily={"Jura"} color={"black"} fontWeight={"bolder"}>
           {product.reduce((red, it) => {
             red += Number(
               (it?.specialPrice !== undefined
@@ -101,12 +99,13 @@ const GridViewComponent = () => {
           $
         </Typography>
         <Button
-          onClick={() => {
+            sx={{textTransform: "none", border: "1px solid black"}}
+            onClick={() => {
             localStorage.setItem("cartItems", "[]");
             window.dispatchEvent(new Event("storage"));
           }}
         >
-          Checkout
+          <Typography fontFamily={"Jura"} color={"black"} fontWeight={"bolder"} >Checkout</Typography>
         </Button>
       </Grid>
     </Grid>
