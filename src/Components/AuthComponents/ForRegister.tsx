@@ -28,7 +28,6 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
             width: "300px",
             fontFamily: "Poppins",
             backgroundColor: "white"
-
           }}
           placeholder="Your Username"
         ></Box>

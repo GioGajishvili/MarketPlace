@@ -49,11 +49,11 @@ function Footer() {
         </Box>
         <Box
           style={{
-            marginLeft: "76%",
+            marginLeft: "72%",
             marginTop: "10px",
           }}
         >
-          <p className="copyright-text">Copyright © 2023 Shop Pty. Ltd.</p>
+          <p className="copyright-text">Copyright © 2023 Gajexa Production</p>
         </Box>
       </Box>
     </Box>
