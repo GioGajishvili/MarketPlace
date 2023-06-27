@@ -1,4 +1,4 @@
-import "./cart.css";
+import "./Cart.css";
 import { useEffect, useRef, useState } from "react";
 import {
   Grid,
