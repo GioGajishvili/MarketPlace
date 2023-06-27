@@ -34,7 +34,7 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
         ></Box>
         <Box
           component={"label"}
-          style={{ fontWeight: "bold", marginLeft: "4px" }}
+          style={{ fontWeight: "bold", marginLeft: "4px", color: "black" }}
         >
           Email
         </Box>
@@ -55,7 +55,7 @@ const ForRegister = ({ handleSubmit, handleToggle }: any) => {
         ></Box>
         <Box
           component={"label"}
-          style={{ marginLeft: "4px", fontWeight: "bold" }}
+          style={{ marginLeft: "4px", fontWeight: "bold", color: "black" }}
         >
           Password
         </Box>
