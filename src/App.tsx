@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
@@ -28,6 +28,10 @@ function App() {
 
   const breakPoint = theme.breakpoints.down(1400);
   const isResponsive = useMediaQuery(breakPoint);
+
+  useEffect(() => {
+    window.scrollTo(0,0)
+  },[])
 
   return (
     <BrowserRouter>
