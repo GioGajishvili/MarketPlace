@@ -1,6 +1,5 @@
 import { Box,  } from "@mui/material";
-import "./vapes.css";
-import Banner from "../../Components/Banner/Banner";
+import "./Vapes.css";
 import { useEffect, useRef } from "react";
 
 const Vapes = () => {
