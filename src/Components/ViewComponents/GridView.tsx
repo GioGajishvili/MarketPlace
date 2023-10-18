@@ -23,7 +23,7 @@ const GridViewComponent = () => {
   return (
     <Box sx={{ display: "flex", flexDirection: "row", justifyContent: "center", margin: "150px" }}>
       <Box>
-        <FilterCompononet />
+        {/* <FilterCompononet /> */}
       </Box>
       <Box component={"div"} className="container-grid-view">
         <Grid padding={"30px 0px"} container justifyContent={"center"}>

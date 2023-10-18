@@ -61,10 +61,10 @@ function Header() {
         <HeaderTypography>
           Mon-Fri :{" "}
           <Box component={"mark"} sx={{ backgroundColor: "transparent", color: "grey" }}>
-            9:00 AM - 5:30 PM
+            10:00 AM - 20:00 PM
           </Box>
         </HeaderTypography>
-        <HeaderTypography>Visit our showroom in Tbilisi, Chavchavadze N36, Contact Us</HeaderTypography>
+        <HeaderTypography>Buy a vape from us and get our premium e-liquid for free 🎉🎉</HeaderTypography>
         <Box
           sx={{
             display: "flex",
@@ -115,20 +115,20 @@ function Header() {
             <Link to="/" className="header-filters" style={{ marginLeft: "30px" }}>
               Home
             </Link>
+            <Link to="/Vapes" className="header-filters">
+              Vapes
+            </Link>
+            <Link to="/liquids" className="header-filters">
+              Liquids
+            </Link>
+            <Link to="/Pods" className="header-filters">
+              Pods
+            </Link>
+            <Link to="/Coils" className="header-filters">
+              Coils
+            </Link>
             <Link to="/AboutUs" className="header-filters">
               About Us
-            </Link>
-            <Link to="/Laptops" className="header-filters">
-              Laptops
-            </Link>
-            <Link to="/DesktopPcs" className="header-filters">
-              Desktop PCs
-            </Link>
-            <Link to="/NetworkingDevices" className="header-filters">
-              Networking Devices
-            </Link>
-            <Link style={{ paddingRight: "200px" }} to="/PCParts" className="header-filters">
-              PC Parts
             </Link>
           </Box>
           <Box

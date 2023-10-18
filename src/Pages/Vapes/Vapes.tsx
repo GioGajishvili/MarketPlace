@@ -1,20 +1,20 @@
 import { Box,  } from "@mui/material";
-import "./Laptops.css";
+import "./vapes.css";
 import Banner from "../../Components/Banner/Banner";
 import { useEffect, useRef } from "react";
 
-const Laptops = () => {
+const Vapes = () => {
   const ref = useRef<any>()
   useEffect(()=> {
     ref.current?.scrollIntoView(0,0)
   },[])
   return (
-    <Box ref={ref} component={"div"} className="laptops-page">
-      <Box component={"p"} className="laptops-page">
-        <Box style={{width: "1000px"}}>Laptops</Box>
+    <Box ref={ref} component={"div"} className="vapes-page">
+      <Box component={"p"} className="vapes-page">
+        <Box style={{width: "1000px"}}>Vapes</Box>
       </Box>
     </Box>
   );
 };
 
-export default Laptops;
+export default Vapes;

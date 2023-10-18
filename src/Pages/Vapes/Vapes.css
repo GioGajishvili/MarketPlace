@@ -1,8 +1,8 @@
-.pc-parts-page {
+.vapes-page {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 1000px;
-  background-color: rgb(255, 0, 212);
+  background-color: rgb(238, 255, 0);
 }

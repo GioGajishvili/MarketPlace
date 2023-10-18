@@ -7,10 +7,10 @@ import Footer from "./Components/Footer/Footer";
 import AboutUs from "./Pages/AboutUs/AboutUs";
 import Auth from "./Pages/Auth/Auth";
 import HomePage from "./Pages/HomePage/HomePage";
-import Laptops from "./Pages/Laptops/Laptops";
-import DesktopPCs from "./Pages/DesktopPCs/DesktopPcs";
-import NetworkingDevices from "./Pages/NetworkingDevices/NetworkingDevices";
-import PCParts from "./Pages/PCParts/PCParts";
+import Vapes from "./Pages/Vapes/Vapes";
+import Liquids from "./Pages/Liquids/Liquids";
+import Pods from "./Pages/Pods/Pods";
+import Coils from "./Pages/Coils/Coils";
 import ProductDetailes from "./Pages/ProductDetailes/ProductDetailes";
 import Favorites from "./Pages/Favorites/Favorites";
 import Cart from "./Pages/Cart/Cart";
@@ -61,13 +61,13 @@ function App() {
             <Header />
             <Routes>
               <Route path="/" element={<HomePage />} />
-              <Route path="/Laptops" element={<Laptops />} />
-              <Route path="/DesktopPCs" element={<DesktopPCs />} />
+              <Route path="/Vapes" element={<Vapes />} />
+              <Route path="/Liquids" element={<Liquids />} />
               <Route
-                path="/NetworkingDevices"
-                element={<NetworkingDevices />}
+                path="/Pods"
+                element={<Pods />}
               />
-              <Route path="/PCParts" element={<PCParts />} />
+              <Route path="/Coils" element={<Coils />} />
               <Route path="Auth" element={<Auth />} />
               <Route path="/AboutUs" element={<AboutUs />} />
               <Route path="/ProductDetailes" element={<ProductDetailes />} />
