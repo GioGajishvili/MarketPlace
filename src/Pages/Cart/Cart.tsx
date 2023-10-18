@@ -74,7 +74,7 @@ const GridViewComponent = () => {
             textAlign={"center"}
             fontSize={"25px"}
           >
-            No Items
+            No Items Yet In Cart 
           </Box>
         )}
       </Grid>

@@ -28,24 +28,36 @@ const GridViewComponent = () => {
 
   return (
     <Box ref={ref} sx={{ display: "flex", flexDirection: "row", justifyContent: "center", padding: "150px", flexWrap: "wrap" }}>
-      {product.map((item) => (
-        <ProductModel
-          key={item.id}
-          id={item.id}
-          inStock={item.inStock}
-          stockColor={item.stockColor}
-          stockIndicator={item.stockIndicator}
-          photos={item.photos}
-          colorfulStarsCount={item.colorfulStarsCount}
-          reviewCount={item.reviewCount}
-          description={item.description}
-          specialPrice={item.specialPrice}
-          discountedPrice={item.discountedPrice}
-          favoriteClickHandler={favoriteClickHandler}
-        />
-      ))}
+      {product.length === 0 ? (
+        <Box fontFamily={"Jura"} color={"black"} fontWeight={"bolder"}
+        width={"100%"}
+        height={"100%"}
+        textAlign={"center"}
+        fontSize={"25px"}
+      >
+        No Items Yet In Favorites 
+      </Box>
+      ) : (
+        product.map((item) => (
+          <ProductModel
+            key={item.id}
+            id={item.id}
+            inStock={item.inStock}
+            stockColor={item.stockColor}
+            stockIndicator={item.stockIndicator}
+            photos={item.photos}
+            colorfulStarsCount={item.colorfulStarsCount}
+            reviewCount={item.reviewCount}
+            description={item.description}
+            specialPrice={item.specialPrice}
+            discountedPrice={item.discountedPrice}
+            favoriteClickHandler={favoriteClickHandler}
+          />
+        ))
+      )}
     </Box>
   );
 };
 
 export default GridViewComponent;
+

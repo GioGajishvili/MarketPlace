@@ -1,6 +1,6 @@
 import { Box,  } from "@mui/material";
-import "./Vapes.css";
 import { useEffect, useRef } from "react";
+import "./Vapes.css";
 
 const Vapes = () => {
   const ref = useRef<any>()
@@ -10,7 +10,7 @@ const Vapes = () => {
   return (
     <Box ref={ref} component={"div"} className="vapes-page">
       <Box component={"p"} className="vapes-page">
-        <Box style={{width: "1000px"}}>Vapes</Box>
+        Vapes
       </Box>
     </Box>
   );

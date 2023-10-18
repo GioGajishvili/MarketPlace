@@ -14,7 +14,7 @@ export const ArrayForLinks = [
   },
   {
     id: 2,
-    title: "PC Parts",
+    title: "Vapes",
     value: [
       "CPUS",
       "Hard Drives (Internal)",
@@ -28,7 +28,7 @@ export const ArrayForLinks = [
   },
   {
     id: 3,
-    title: "Desktop PCs",
+    title: "Liquids",
     value: [
       "Custom PCs",
       "Servers",
@@ -40,7 +40,7 @@ export const ArrayForLinks = [
   },
   {
     id: 4,
-    title: "Laptops",
+    title: "Pods",
     value: [
       "Evryday Use Notebooks",
       "MSI Workstation Series",
@@ -52,7 +52,7 @@ export const ArrayForLinks = [
   },
   {
     id: 5,
-    title: "Address",
+    title: "Coils",
     value: [
       "Address: 1234 Street Adress",
       "Phones: (+995) 551 37 07 37",
